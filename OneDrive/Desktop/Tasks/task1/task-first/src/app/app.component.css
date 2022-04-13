@@ -1,0 +1,28 @@
+span{
+    color: red;
+}
+.container{
+    position: relative;
+    left: 100px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid grey;
+    text-align: left;
+    padding: 30px;
+    font-size: 30px;
+}
+input{
+    height: 30px;
+}
+.container-second{
+    text-align: left;
+    position: absolute;
+    left: 800px;
+    top:5px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid grey;
+    text-align: left;
+    padding: 30px;
+    font-size: 30px;
+}

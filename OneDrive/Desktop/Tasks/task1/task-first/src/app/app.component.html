@@ -1,0 +1,56 @@
+<div class="container">
+  <form [formGroup]="newForm" (ngSubmit)="onSubmitData()">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      name="name"
+      formControlName="name"
+      id="namebox"
+      required
+    /><br />
+    <span
+      *ngIf="
+        newForm.controls['name'].invalid && newForm.controls['name'].touched
+      "
+      >Required Field!!</span
+    ><br />
+
+    <input
+      type="checkbox"
+      name="gender"
+      value="gender"
+      formControlName="gender"
+      (change)="onCheck($event)"
+    />
+    <label for="gender">Gender</label> <br />
+    <input
+      type="checkbox"
+      name="age"
+      value="age"
+      formControlName="age"
+      (change)="onCheck($event)"
+    />
+    <label for="age">Age</label><br />
+    <input
+      type="checkbox"
+      name="national"
+      value="national"
+      formControlName="national"
+      (change)="onCheck($event)"
+    />
+
+    <label for="national">National</label><br />
+    <span
+      *ngIf="
+        (newForm.controls['gender'].invalid &&
+          newForm.controls['gender'].untouched) ||
+        (newForm.controls['age'].invalid &&
+          newForm.controls['age'].untouched) ||
+        (newForm.controls['national'].invalid &&
+          newForm.controls['national'].untouched)
+      "
+    ></span>
+    <br />
+    <button type="submit" [disabled]="buttonState">Submit</button>
+  </form>
+</div>
