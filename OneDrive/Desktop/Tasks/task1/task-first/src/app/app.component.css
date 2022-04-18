@@ -14,15 +14,16 @@ span{
 input{
     height: 30px;
 }
-.container-second{
+
+.display{
     text-align: left;
-    position: absolute;
-    left: 800px;
-    top:5px;
     width: 300px;
     height: 300px;
-    border: 1px solid grey;
-    text-align: left;
+    position: relative;
+    left: 700px;
+    bottom:360px;
     padding: 30px;
-    font-size: 30px;
+    font-size: 15px;
+
+
 }

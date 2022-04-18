@@ -54,3 +54,15 @@
     <button type="submit" [disabled]="buttonState">Submit</button>
   </form>
 </div>
+
+<ul *ngFor="let user1 of user1data" style="display: inline-block">
+  <li>{{ user1 }}</li>
+</ul>
+<br />
+<ul *ngFor="let user2 of user2data" style="display: inline-block">
+  <li>{{ user2 }}</li>
+</ul>
+<br />
+<ul *ngFor="let user3 of user3data" style="display: inline-block">
+  <li>{{ user3 }}</li>
+</ul>

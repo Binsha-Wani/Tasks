@@ -6,17 +6,17 @@ import { Observable } from 'rxjs';
 })
 export class FormsServiceService {
 constructor(private http:HttpClient){}
-urlForGender='https://api.genderize.io?name=peter';
-urlForAge='https://api.agify.io?name=michael';
-urlForNational='https://api.nationalize.io?name=michael';
- onCallingGender():Observable<any>{
-   return this.http.get(this.urlForGender)
+urlForGender='https://api.genderize.io?name=';
+urlForAge='https://api.agify.io?name=';
+urlForNational='https://api.nationalize.io?name=';
+ onCallingGender(name:any):Observable<any>{
+   return this.http.get(this.urlForGender+name)
  }
- onCallingAge():Observable<any>{
-  return this.http.get(this.urlForAge)
+ onCallingAge(name:any):Observable<any>{
+  return this.http.get(this.urlForAge+name)
 }
-onCallingNational():Observable<any>{
-  return this.http.get(this.urlForNational)
+onCallingNational(name:any):Observable<any>{
+  return this.http.get(this.urlForNational+name)
 }
 }
 

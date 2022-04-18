@@ -27,32 +27,35 @@ export class AppComponent implements OnInit{
   //   })
   // )
   }
+
   formData:any={}
+  user:any;
   user1data:any=[]
   user2data:any=[];
   user3data:any=[];
   onSubmitData(){
     this.formData=this.newForm.value;
-    document.write("name is: "+this.formData.name +"</br>");
+    this.user=this.formData.name
     if(this.formData.gender==true){
-     this.services.onCallingGender().subscribe(data1=>{
+     this.services.onCallingGender(this.formData.name).subscribe(data1=>{
       this.user1data.push(data1.name,data1.gender,data1.probability)
-       document.write(" </br></br>Gender is:" +this.user1data)
       }
    ) +"</br>";}
   if(this.formData.age==true){
-    this.services.onCallingAge().subscribe(data2=>{
-      this.user2data.push(data2.age) 
-       document.write("</br></br> Age is:" +this.user2data)
+    this.services.onCallingAge(this.formData.name).subscribe(data2=>{
+      this.user2data.push(data2.age) ;
+      console.log(this.formData)
       }) +"</br></br>";
     }
     if(this.formData.national==true){
-      this.services.onCallingNational().subscribe(data3=>{
-        this.user3data.push(data3.name)
-        this.user3data.push(data3.country[0].country_id);
-        this.user3data.push(data3.country[0].probability);
-       document.write("</br></br> National is:" +this.user3data);
-       ;
+      this.services.onCallingNational(this.formData.name).subscribe(data3=>{
+        if(data3.country.length===0 ){
+          this.user3data.push("Country name not available for this name.")
+        }
+        else{
+          this.user3data.push(data3.country[0].country_id);
+          this.user3data.push(data3.country[0].probability);}
+          ;
       }) +"</br></br>";
     }
 
